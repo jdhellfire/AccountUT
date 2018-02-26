@@ -132,6 +132,7 @@ class AccountUT(unittest.TestCase):
         except Exception as e:
             print(str(e))
 
+        self.check_account_balance(100)
 
 
 
