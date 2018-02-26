@@ -145,6 +145,15 @@ class AccountUT(unittest.TestCase):
         THEN: software will throw exception
         THEN:get blance value will be -1
         """
+        self.account.deposit(100)
+
+        try:
+            self.account.withdraw(101)
+        except Exception as e:
+            print(str(e))
+            self.fail()
+
+        self.check_account_balance(-1)
 
 
 if __name__ == '__main__':
