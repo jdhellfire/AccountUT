@@ -72,6 +72,11 @@ class AccountUT(unittest.TestCase):
         WHEN: Withdraw money in case:[0,1,50,99,100] and get balance
         THEN: get blance value will be [100,99,50,1,0]
         """
+        self.debit_account.deposit(100)
+        for withdraw, balance in [(0, 100), (1, 99), (50, 50), (99, 1), (100, 0)]:
+            self.debit_account.withdraw(withdraw)
+            self.check_debit_account_balance(balance)
+            self.debit_account.deposit(withdraw)
 
     def test_withdraw_from_account_002(self):
         """
