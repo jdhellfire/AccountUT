@@ -3,14 +3,16 @@ from Account import Account
 
 
 class AccountUT(unittest.TestCase):
+    def setUp(self):
+        self.debit_account = Account.open_debit_account()
+
     def test_get_balance_default_value_001(self):
         """
         GIVEN:Create a Debit Account
         WHEN: call get_balance interface
         THEN: get blance value will be 0
         """
-        debit_account = Account.open_debit_account()
-        self.assertEqual(0, debit_account.get_balance())
+        self.assertEqual(0, self.debit_account.get_balance())
 
     def test_get_balance_default_value_002(self):
         """
