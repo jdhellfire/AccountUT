@@ -7,13 +7,19 @@ class AccountUT(unittest.TestCase):
         self.debit_account = Account.open_debit_account()
         self.account = Account.open_account()
 
+    def check_debit_account_balance(self, value):
+        self.assertEqual(value, self.debit_account.get_balance())
+
+    def check_account_balance(self, value):
+        self.assertEqual(value, self.account.get_balance())
+
     def test_get_balance_default_value_001(self):
         """
         GIVEN:Create a Debit Account
         WHEN: call get_balance interface
         THEN: get blance value will be 0
         """
-        self.assertEqual(0, self.debit_account.get_balance())
+        self.check_debit_account_balance(0)
 
     def test_get_balance_default_value_002(self):
         """
@@ -21,7 +27,7 @@ class AccountUT(unittest.TestCase):
         WHEN: call get_balance interface
         THEN: get blance value will be 0
         """
-        self.assertEqual(0, self.account.get_balance())
+        self.check_account_balance(0)
 
     def test_deposit_to_account_001(self):
         """
@@ -31,7 +37,7 @@ class AccountUT(unittest.TestCase):
         """
         self.debit_account.deposit(100)
 
-        self.assertEqual(100, self.debit_account.get_balance())
+        self.check_debit_account_balance(100)
 
     def test_deposit_to_account_002(self):
         """
