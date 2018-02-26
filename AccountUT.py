@@ -3,6 +3,8 @@ from Account import Account
 
 
 class AccountUT(unittest.TestCase):
+    Withdraw_test_normal_test_data = [(0, 100), (1, 99), (50, 50), (99, 1), (100, 0)]
+
     def setUp(self):
         self.debit_account = Account.open_debit_account()
         self.account = Account.open_account()
@@ -73,7 +75,8 @@ class AccountUT(unittest.TestCase):
         THEN: get blance value will be [100,99,50,1,0]
         """
         self.debit_account.deposit(100)
-        for withdraw, balance in [(0, 100), (1, 99), (50, 50), (99, 1), (100, 0)]:
+
+        for withdraw, balance in AccountUT.Withdraw_test_normal_test_data:
             self.debit_account.withdraw(withdraw)
             self.check_debit_account_balance(balance)
             self.debit_account.deposit(withdraw)
