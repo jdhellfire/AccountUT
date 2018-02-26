@@ -18,6 +18,9 @@ class Account:
         self.__balance = self.__balance if amount < 0 else self.__balance + amount
 
     def withdraw(self, amount):
+        if amount < 0:
+            return
+
         insufficient_funds = self.get_balance() < amount
         self.__balance -= amount
         if self.__is_debit and insufficient_funds:
