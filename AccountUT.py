@@ -30,6 +30,7 @@ class AccountUT(unittest.TestCase):
         THEN: get blance value will be 100
         """
         self.debit_account.deposit(100)
+
         self.assertEqual(100, self.debit_account.get_balance())
 
     def test_deposit_to_account_002(self):
