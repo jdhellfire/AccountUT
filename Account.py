@@ -12,9 +12,6 @@ class Account:
         return Account(False)
 
     def get_balance(self):
-        pass
-
-    def get_balance(self):
         return self.__balance
 
     def deposit(self, amount):
@@ -33,4 +30,3 @@ class InsufficientFundsException(Exception):
 
     def __str__(self):
         return 'Account Exception'
-
