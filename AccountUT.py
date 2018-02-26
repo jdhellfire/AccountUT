@@ -5,6 +5,7 @@ from Account import Account
 class AccountUT(unittest.TestCase):
     def setUp(self):
         self.debit_account = Account.open_debit_account()
+        self.account = Account.open_account()
 
     def test_get_balance_default_value_001(self):
         """
@@ -20,8 +21,7 @@ class AccountUT(unittest.TestCase):
         WHEN: call get_balance interface
         THEN: get blance value will be 0
         """
-        other_account = Account.open_account()
-        self.assertEqual(0, other_account.get_balance())
+        self.assertEqual(0, self.account.get_balance())
 
     def test_deposit_to_account_001(self):
         """
@@ -29,8 +29,8 @@ class AccountUT(unittest.TestCase):
         WHEN: deposit money 100 and get balance
         THEN: get blance value will be 100
         """
-
-        pass
+        self.debit_account.deposit(100)
+        self.assertEqual(100, self.debit_account.get_balance())
 
     def test_deposit_to_account_002(self):
         """
