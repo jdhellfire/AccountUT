@@ -105,7 +105,6 @@ class AccountUT(unittest.TestCase):
         self.debit_account.withdraw(-1)
         self.check_debit_account_balance(100)
 
-
     def test_withdraw_from_account_004(self):
         """
         GIVEN:Create a Debit Account
@@ -133,9 +132,6 @@ class AccountUT(unittest.TestCase):
             print(str(e))
 
         self.check_debit_account_balance(100)
-
-
-
 
     def test_withdraw_from_account_006(self):
         """
