@@ -15,7 +15,7 @@ class Account:
         return self.__balance
 
     def deposit(self, amount):
-        self.__balance += amount
+        self.__balance = self.__balance if amount < 0 else self.__balance + amount
 
     def withdraw(self, amount):
         insufficient_funds = self.get_balance() < amount
@@ -30,5 +30,3 @@ class InsufficientFundsException(Exception):
 
     def __str__(self):
         return 'Account Exception'
-
-
