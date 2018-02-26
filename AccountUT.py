@@ -125,6 +125,16 @@ class AccountUT(unittest.TestCase):
         THEN: software will throw exception
         THEN:get blance value will be 100
         """
+        self.debit_account.deposit(100)
+        try:
+            self.debit_account.withdraw(101)
+            self.fail()
+        except Exception as e:
+            print(str(e))
+
+
+
+
 
     def test_withdraw_from_account_006(self):
         """
