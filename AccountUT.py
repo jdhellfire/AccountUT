@@ -56,14 +56,14 @@ class AccountUT(unittest.TestCase):
         self.debit_account.deposit(-1)
         self.check_debit_account_balance(0)
 
-
     def test_deposit_to_account_004(self):
         """
         GIVEN:Create other Account
         WHEN: deposit money -1 and get balance
         THEN:get blance value will be 0
         """
-        pass
+        self.account.deposit(-1)
+        self.check_debit_account_balance(0)
 
     def test_withdraw_from_account_001(self):
         """
