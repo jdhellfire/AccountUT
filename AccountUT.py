@@ -20,7 +20,8 @@ class AccountUT(unittest.TestCase):
         WHEN: call get_balance interface
         THEN: get blance value will be 0
         """
-        pass
+        other_account = Account.open_account()
+        self.assertEqual(0, other_account.get_balance())
 
     def test_deposit_to_account_001(self):
         """
