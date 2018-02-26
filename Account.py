@@ -22,9 +22,11 @@ class Account:
             return
 
         insufficient_funds = self.get_balance() < amount
-        self.__balance -= amount
+
         if self.__is_debit and insufficient_funds:
             raise InsufficientFundsException()
+
+        self.__balance -= amount
 
 
 class InsufficientFundsException(Exception):
